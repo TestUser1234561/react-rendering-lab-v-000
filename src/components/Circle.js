@@ -2,11 +2,8 @@ import React from 'react';
 
 class Circle extends React.Component {
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      increasing: this.props.rating < nextProps.rating,
-      decreasing: this.props.rating > nextProps.rating
-    });
+  shouldComponentUpdate(nextProps) {
+    return Boolean(nextProps.color !== this.props.color);
   }
 
   render() {
